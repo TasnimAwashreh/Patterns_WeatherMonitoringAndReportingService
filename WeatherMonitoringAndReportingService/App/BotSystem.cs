@@ -29,7 +29,6 @@ namespace WeatherMonitoringAndReportingService.App
             {
                 Console.WriteLine($"{Constants.ErrorInput}");
             }
-
         }
     }
 }

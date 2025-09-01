@@ -7,7 +7,7 @@
         public float Humidity { get; set; }
 
         //For XML
-        public WeatherData() { } 
+        public WeatherData() { }
 
         public WeatherData(string location, float temperature, float humidity)
         {
