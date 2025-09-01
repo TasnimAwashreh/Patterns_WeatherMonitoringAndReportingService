@@ -1,0 +1,34 @@
+﻿using Microsoft.Extensions.DependencyInjection;
+using WeatherMonitoringAndReportingService.App;
+using WeatherMonitoringAndReportingService.Logic.Readers;
+using WeatherMonitoringAndReportingService.Logic.Services;
+using WeatherMonitoringAndReportingService.Logic.Subjects;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        var serviceCollection = new ServiceCollection();
+        serviceCollection
+            .AddConfiguration()
+            .AddServices();
+
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+        RunApp(serviceProvider);
+    }
+
+    public static void RunApp(IServiceProvider serviceProvider)
+    {
+        using var scope = serviceProvider.CreateScope();
+
+        var BotSystem = scope.ServiceProvider.GetRequiredService<BotSystem>();
+        var botLoader = scope.ServiceProvider.GetRequiredService<IBotLoader>();
+        botLoader.LoadBots(scope.ServiceProvider.GetRequiredService<ISubject>());
+
+        Console.WriteLine(Constants.Introduction);
+        var userInput = InputParser.ParseInput();
+
+        var reader = ChooseFormatReader.ChooseReader(userInput);
+        BotSystem.ProcessInput(reader, userInput);
+    }
+}
