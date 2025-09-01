@@ -1,11 +1,12 @@
 ﻿using WeatherMonitoringAndReportingService.Data.Models;
+using WeatherMonitoringAndReportingService.Logic.BotSystem;
 
-namespace WeatherMonitoringAndReportingService.Logic.BotSystem
+namespace WeatherMonitoringAndReportingService.Logic.Subjects
 {
     public class Subject : ISubject
     {
-        public WeatherData weatherData { get; set; }
-        private List<IBotObserver> _observers;
+        public WeatherData WeatherData { get; private set; }
+        private readonly List<IBotObserver> _observers;
 
         public Subject()
         {
@@ -26,14 +27,14 @@ namespace WeatherMonitoringAndReportingService.Logic.BotSystem
         {
             foreach (var observer in _observers)
             {
-                observer.Update(this);
+                observer.Update(WeatherData);
             }
         }
 
         public void ProcessNewData(WeatherData weatherData)
         {
-            this.weatherData = weatherData;
-            this.Notify();
+            WeatherData = weatherData;
+            Notify();
         }
     }
 }

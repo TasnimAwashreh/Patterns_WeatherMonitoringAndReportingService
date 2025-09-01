@@ -2,9 +2,12 @@
 {
     public class WeatherData
     {
-        public string Location;
-        public float Temperature;
-        public float Humidity;
+        public string Location { get; set; }
+        public float Temperature { get; set; }
+        public float Humidity { get; set; }
+
+        //For XML
+        public WeatherData() { } 
 
         public WeatherData(string location, float temperature, float humidity)
         {
