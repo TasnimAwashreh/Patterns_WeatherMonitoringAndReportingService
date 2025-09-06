@@ -1,4 +1,4 @@
-﻿using WeatherMonitoringAndReportingService.Data.Models;
+﻿using WeatherMonitoringAndReportingService.Logic.Models;
 
 namespace WeatherMonitoringAndReportingService.Logic.Observers.BotTypes
 {
@@ -8,7 +8,7 @@ namespace WeatherMonitoringAndReportingService.Logic.Observers.BotTypes
 
         public override void Update(WeatherData weatherData)
         {
-            if (weatherData.Humidity > HumidityThreshold)
+            if (this.Enabled && weatherData.Humidity > HumidityThreshold)
                 Console.WriteLine(Message);
         }
     }

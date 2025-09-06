@@ -1,4 +1,4 @@
-﻿using WeatherMonitoringAndReportingService.Data.Models;
+﻿using WeatherMonitoringAndReportingService.Logic.Models;
 
 namespace WeatherMonitoringAndReportingService.Logic.BotSystem
 {

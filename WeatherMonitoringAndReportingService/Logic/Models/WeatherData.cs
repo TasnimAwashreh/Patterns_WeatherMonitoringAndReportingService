@@ -1,4 +1,4 @@
-﻿namespace WeatherMonitoringAndReportingService.Data.Models
+﻿namespace WeatherMonitoringAndReportingService.Logic.Models
 {
     public class WeatherData
     {

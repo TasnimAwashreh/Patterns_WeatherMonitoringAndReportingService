@@ -7,9 +7,9 @@ namespace WeatherMonitoringAndReportingService.App
     public class BotSystem
     {
         private IConfiguration _config;
-        private ISubject _subject;
+        private IWeatherStation _subject;
 
-        public BotSystem(IConfiguration config, ISubject subject)
+        public BotSystem(IConfiguration config, IWeatherStation subject)
         {
             _config = config;
             _subject = subject;

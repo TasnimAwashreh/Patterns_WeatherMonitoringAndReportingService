@@ -1,5 +1,5 @@
-﻿using WeatherMonitoringAndReportingService.Data.Models;
-using WeatherMonitoringAndReportingService.Logic.BotSystem;
+﻿using WeatherMonitoringAndReportingService.Logic.BotSystem;
+using WeatherMonitoringAndReportingService.Logic.Models;
 
 namespace WeatherMonitoringAndReportingService.Logic.Observers
 {
