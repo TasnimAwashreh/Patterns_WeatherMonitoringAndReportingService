@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using WeatherMonitoringAndReportingService.Logic.DTOs;
 using WeatherMonitoringAndReportingService.Logic.Observers.BotTypes;
 using WeatherMonitoringAndReportingService.Logic.Subjects;
 
@@ -15,9 +16,16 @@ namespace WeatherMonitoringAndReportingService.Logic.Services
 
         public void LoadBots(IWeatherStation subject)
         {
-            var rainBot = _config.GetSection("RainBot").Get<RainBot>();
-            var sunBot = _config.GetSection("SunBot").Get<SunBot>();
-            var snowBot = _config.GetSection("SnowBot").Get<SnowBot>();
+            var rainBotDto = _config.GetSection("RainBot").Get<RainBotDTO>();
+            var sunBotDto = _config.GetSection("SunBot").Get<SunBotDTO>();
+            var snowBotDto = _config.GetSection("SnowBot").Get<SnowBotDTO>();
+
+            var rainBot = new RainBot { Message = rainBotDto.Message, Enabled = rainBotDto.Enabled, 
+                HumidityThreshold = rainBotDto .HumidityThreshold};
+            var sunBot = new SunBot { Message = sunBotDto.Message, Enabled = sunBotDto.Enabled, 
+                TemperatureThreshold = sunBotDto .TemperatureThreshold};
+            var snowBot = new SnowBot { Message = snowBotDto.Message, Enabled = snowBotDto.Enabled, 
+                TemperatureThreshold = snowBotDto .TemperatureThreshold};
 
             if (rainBot != null && rainBot.Enabled)
                 subject.Attach(rainBot);
