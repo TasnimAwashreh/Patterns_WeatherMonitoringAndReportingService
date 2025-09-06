@@ -9,6 +9,6 @@
         public const string ProcessingStr = "Processing Input...";
         public const string ErrorInput = "Please fix the format in your input and try again\n";
 
-        public const string ConfigFile = "config.json";
+        public const string ConfigFile = "appsettings.json";
     }
 }

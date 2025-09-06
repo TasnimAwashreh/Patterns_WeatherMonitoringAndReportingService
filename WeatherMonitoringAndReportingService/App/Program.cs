@@ -21,14 +21,14 @@ public class Program
     {
         using var scope = serviceProvider.CreateScope();
 
-        var BotSystem = scope.ServiceProvider.GetRequiredService<BotSystem>();
+        var botSystem = scope.ServiceProvider.GetRequiredService<BotSystem>();
         var botLoader = scope.ServiceProvider.GetRequiredService<IBotLoader>();
-        botLoader.LoadBots(scope.ServiceProvider.GetRequiredService<ISubject>());
+        botLoader.LoadBots(scope.ServiceProvider.GetRequiredService<IWeatherStation>());
 
         Console.WriteLine(Constants.Introduction);
         var userInput = InputParser.ParseInput();
 
         var reader = ChooseFormatReader.ChooseReader(userInput);
-        BotSystem.ProcessInput(reader, userInput);
+        botSystem.ProcessInput(reader, userInput);
     }
 }

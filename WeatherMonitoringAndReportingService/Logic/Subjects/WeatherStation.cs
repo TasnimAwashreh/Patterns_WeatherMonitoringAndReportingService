@@ -1,14 +1,14 @@
-﻿using WeatherMonitoringAndReportingService.Data.Models;
-using WeatherMonitoringAndReportingService.Logic.BotSystem;
+﻿using WeatherMonitoringAndReportingService.Logic.BotSystem;
+using WeatherMonitoringAndReportingService.Logic.Models;
 
 namespace WeatherMonitoringAndReportingService.Logic.Subjects
 {
-    public class Subject : ISubject
+    public class WeatherStation : IWeatherStation
     {
         public WeatherData WeatherData { get; private set; }
         private readonly List<IBotObserver> _observers;
 
-        public Subject()
+        public WeatherStation()
         {
             _observers = new List<IBotObserver>();
         }

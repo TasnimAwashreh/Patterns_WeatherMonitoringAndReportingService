@@ -21,7 +21,7 @@ namespace WeatherMonitoringAndReportingService.App
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services
-                .AddScoped<ISubject, Subject>()
+                .AddScoped<IWeatherStation, WeatherStation>()
                 .AddScoped<IBotLoader, BotLoader>()
 
                 .AddScoped<BotSystem>();

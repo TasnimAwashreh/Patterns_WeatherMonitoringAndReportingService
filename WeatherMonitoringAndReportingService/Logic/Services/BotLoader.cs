@@ -13,7 +13,7 @@ namespace WeatherMonitoringAndReportingService.Logic.Services
             _config = config;
         }
 
-        public void LoadBots(ISubject subject)
+        public void LoadBots(IWeatherStation subject)
         {
             var rainBot = _config.GetSection("RainBot").Get<RainBot>();
             var sunBot = _config.GetSection("SunBot").Get<SunBot>();
