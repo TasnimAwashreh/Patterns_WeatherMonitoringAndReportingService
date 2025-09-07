@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WeatherMonitoringAndReportingService.Logic.Readers;
 using WeatherMonitoringAndReportingService.Logic.Services;
 using WeatherMonitoringAndReportingService.Logic.Subjects;
 
@@ -23,6 +24,8 @@ namespace WeatherMonitoringAndReportingService.App
             services
                 .AddScoped<IWeatherStation, WeatherStation>()
                 .AddScoped<IBotLoader, BotLoader>()
+                .AddScoped<IReaderService, ReaderService>()
+                .AddScoped<IFormatReader, JsonFormatReader>()
 
                 .AddScoped<BotSystem>();
             return services;
