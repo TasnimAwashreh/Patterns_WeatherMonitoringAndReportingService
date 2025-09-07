@@ -5,7 +5,7 @@ namespace WeatherMonitoringAndReportingService.Logic.Readers
 {
     public class XMLFormatReader : IFormatReader
     {
-        public WeatherData? ReadWeatherData(string userInput)
+        public WeatherData? ParseWeatherData(string userInput)
         {
             try
             {

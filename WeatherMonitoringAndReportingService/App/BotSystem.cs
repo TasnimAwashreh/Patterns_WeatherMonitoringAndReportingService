@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using WeatherMonitoringAndReportingService.Logic.Readers;
+using WeatherMonitoringAndReportingService.Logic.Models;
 using WeatherMonitoringAndReportingService.Logic.Subjects;
 
 namespace WeatherMonitoringAndReportingService.App
@@ -15,15 +15,13 @@ namespace WeatherMonitoringAndReportingService.App
             _subject = subject;
         }
 
-        public void ProcessInput(IFormatReader reader, string input)
+        public void ProcessInput(WeatherData weatherData)
         {
             Console.WriteLine(Constants.ProcessingStr);
             try
             {
-                var data = reader.ReadWeatherData(input);
-
-                if (data == null) Console.WriteLine(Constants.InvalidInput);
-                else _subject.ProcessNewData(data);
+                if (weatherData == null) Console.WriteLine(Constants.InvalidInput);
+                else _subject.ProcessNewData(weatherData);
             }
             catch (Exception ex)
             {

@@ -23,12 +23,13 @@ public class Program
 
         var botSystem = scope.ServiceProvider.GetRequiredService<BotSystem>();
         var botLoader = scope.ServiceProvider.GetRequiredService<IBotLoader>();
+        var readerService = scope.ServiceProvider.GetRequiredService<IReaderService>();
         botLoader.LoadBots(scope.ServiceProvider.GetRequiredService<IWeatherStation>());
 
         Console.WriteLine(Constants.Introduction);
         var userInput = InputParser.ParseInput();
-
-        var reader = ChooseFormatReader.ChooseReader(userInput);
-        botSystem.ProcessInput(reader, userInput);
+        readerService.ChooseReader(userInput);
+        var readerData = readerService.ParseWeatherData(userInput);
+        botSystem.ProcessInput(readerData);
     }
 }

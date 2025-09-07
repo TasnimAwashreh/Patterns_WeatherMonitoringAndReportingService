@@ -4,6 +4,6 @@ namespace WeatherMonitoringAndReportingService.Logic.Readers
 {
     public interface IFormatReader
     {
-        public WeatherData? ReadWeatherData(string userInput);
+        public WeatherData? ParseWeatherData(string userInput);
     }
 }
