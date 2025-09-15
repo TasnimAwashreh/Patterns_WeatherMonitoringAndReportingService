@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace WeatherMonitoringAndReportingService.Logic.DTOs
 {
-    public class BotDTO
+    public class RainBotConfig : BotConfig
     {
-        public string Message { get; set; }
-        public bool Enabled { get; set; }
+        public float HumidityThreshold;
     }
 }

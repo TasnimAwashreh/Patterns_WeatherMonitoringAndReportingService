@@ -28,8 +28,20 @@ public class Program
 
         Console.WriteLine(Constants.Introduction);
         var userInput = InputParser.ParseInput();
-        readerService.ChooseReader(userInput);
-        var readerData = readerService.ParseWeatherData(userInput);
-        botSystem.ProcessInput(readerData);
+        FormatReader.ChooseReader(userInput);
+        try
+        {
+            var readerData = readerService.ParseWeatherData(userInput);
+            botSystem.ProcessInput(readerData);
+        }
+        catch (InvalidOperationException)
+        {
+            Console.WriteLine(Constants.InvalidInput);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+
     }
 }

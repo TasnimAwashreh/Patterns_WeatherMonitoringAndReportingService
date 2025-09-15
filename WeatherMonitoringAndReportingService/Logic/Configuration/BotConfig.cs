@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace WeatherMonitoringAndReportingService.Logic.DTOs
 {
-    public class SunBotDTO : BotDTO
+    public class BotConfig
     {
-        public float TemperatureThreshold;
+        public string Message { get; set; }
+        public bool Enabled { get; set; }
     }
 }

@@ -16,9 +16,9 @@ namespace WeatherMonitoringAndReportingService.Logic.Services
 
         public void LoadBots(IWeatherStation subject)
         {
-            var rainBotDto = _config.GetSection("RainBot").Get<RainBotDTO>();
-            var sunBotDto = _config.GetSection("SunBot").Get<SunBotDTO>();
-            var snowBotDto = _config.GetSection("SnowBot").Get<SnowBotDTO>();
+            var rainBotDto = _config.GetSection("RainBot").Get<RainBotConfig>();
+            var sunBotDto = _config.GetSection("SunBot").Get<SunBotConfig>();
+            var snowBotDto = _config.GetSection("SnowBot").Get<SnowBotConfig>();
 
             var rainBot = new RainBot { Message = rainBotDto.Message, Enabled = rainBotDto.Enabled, 
                 HumidityThreshold = rainBotDto .HumidityThreshold};
