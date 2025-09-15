@@ -7,7 +7,6 @@ namespace WeatherMonitoringAndReportingService.Logic.Subjects
     {
         void Attach(IBotObserver observer);
         void Detach(IBotObserver observer);
-        void Notify();
         void ProcessNewData(WeatherData weatherData);
     }
 }

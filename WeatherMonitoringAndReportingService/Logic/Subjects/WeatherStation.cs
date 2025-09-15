@@ -23,12 +23,17 @@ namespace WeatherMonitoringAndReportingService.Logic.Subjects
             _observers.Remove(observer);
         }
 
-        public void Notify()
+        private void Notify()
         {
             foreach (var observer in _observers)
             {
                 observer.Update(WeatherData);
             }
+        }
+
+        public IReadOnlyList<IBotObserver> GetObservers()
+        {
+            return _observers;
         }
 
         public void ProcessNewData(WeatherData weatherData)

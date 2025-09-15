@@ -27,11 +27,11 @@ namespace WeatherMonitoringAndReportingService.Logic.Services
             var snowBot = new SnowBot { Message = snowBotDto.Message, Enabled = snowBotDto.Enabled, 
                 TemperatureThreshold = snowBotDto .TemperatureThreshold};
 
-            if (rainBot != null && rainBot.Enabled)
+            if (rainBot != null)
                 subject.Attach(rainBot);
-            if (sunBot != null && sunBot.Enabled)
+            if (sunBot != null)
                 subject.Attach(sunBot);
-            if (snowBot != null && snowBot.Enabled)
+            if (snowBot != null)
                 subject.Attach(snowBot);
         }
     }
