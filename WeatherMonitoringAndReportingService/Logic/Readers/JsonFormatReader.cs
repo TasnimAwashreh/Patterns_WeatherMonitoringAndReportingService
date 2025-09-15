@@ -7,14 +7,7 @@ namespace WeatherMonitoringAndReportingService.Logic.Readers
     {
         public WeatherData? ParseWeatherData(string userInput)
         {
-            try
-            {
-                return JsonSerializer.Deserialize<WeatherData>(userInput);
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            return JsonSerializer.Deserialize<WeatherData>(userInput);
         }
     }
 }
