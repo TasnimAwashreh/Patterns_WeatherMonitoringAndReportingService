@@ -12,6 +12,11 @@ namespace WeatherMonitoringAndReportingService.Logic.Services
             _reader = reader;
         }
 
+        public void SetReader(IFormatReader reader)
+        {
+            _reader = reader;
+        }
+
         public WeatherData? ParseWeatherData(string input)
         {
             return _reader.ParseWeatherData(input);
