@@ -1,4 +1,5 @@
 ﻿using Moq;
+using WeatherMonitoringAndReportingService.App;
 using WeatherMonitoringAndReportingService.Logic.Models;
 using WeatherMonitoringAndReportingService.Logic.Readers;
 using WeatherMonitoringAndReportingService.Logic.Services;
@@ -15,7 +16,8 @@ namespace WMRS.Tests.Tests
             var mockReader = new Mock<IFormatReader>();
             var service = new ReaderService(mockReader.Object);
 
-            service.ChooseReader(xmlUserInput);
+            IFormatReader reader = FormatReader.ChooseReader(xmlUserInput);
+            service.SetReader(reader);
 
             //Act
             WeatherData? weatherData = service.ParseWeatherData(xmlUserInput);
@@ -32,7 +34,8 @@ namespace WMRS.Tests.Tests
             var mockReader = new Mock<IFormatReader>();
             var service = new ReaderService(mockReader.Object);
 
-            service.ChooseReader(jsonUserInput);
+            IFormatReader reader = FormatReader.ChooseReader(jsonUserInput);
+            service.SetReader(reader);
 
             //Act
             WeatherData? weatherData = service.ParseWeatherData(jsonUserInput);

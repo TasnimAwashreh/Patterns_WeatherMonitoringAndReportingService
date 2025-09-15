@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using WeatherMonitoringAndReportingService.Logic.DTOs;
 using WeatherMonitoringAndReportingService.Logic.Services;
 using WeatherMonitoringAndReportingService.Logic.Subjects;
 
@@ -15,23 +16,23 @@ namespace WMRS.Tests.Tests
         public void LoadBots_ShouldAttachEnabledBots()
         {
             int initialBotsCount = 3;
-            var rainBotDTO = DummyData.TestRainBot;
-            var sunBotDTO = DummyData.TestSunBot;
-            var snowBotDTO = DummyData.TestSnowBot;
+            var rainBotConfig = DummyData.TestRainBot;
+            var sunBotConfig = DummyData.TestSunBot;
+            var snowBotConfig = DummyData.TestSnowBot;
 
             var fakeAppSettings = new Dictionary<string, string>
             {
-                ["RainBot:Message"] = rainBotDTO.Message,
-                ["RainBot:Enabled"] = rainBotDTO.Enabled.ToString(),
-                ["RainBot:HumidityThreshold"] = rainBotDTO.HumidityThreshold.ToString(),
+                ["RainBot:Message"] = rainBotConfig.Message,
+                ["RainBot:Enabled"] = rainBotConfig.Enabled.ToString(),
+                ["RainBot:HumidityThreshold"] = rainBotConfig.HumidityThreshold.ToString(),
 
-                ["SunBot:Message"] = sunBotDTO.Message,
-                ["SunBot:Enabled"] = sunBotDTO.Enabled.ToString(),
-                ["SunBot:TemperatureThreshold"] = sunBotDTO.TemperatureThreshold.ToString(),
+                ["SunBot:Message"] = sunBotConfig.Message,
+                ["SunBot:Enabled"] = sunBotConfig.Enabled.ToString(),
+                ["SunBot:TemperatureThreshold"] = sunBotConfig.TemperatureThreshold.ToString(),
 
-                ["SnowBot:Message"] = snowBotDTO.Message,
-                ["SnowBot:Enabled"] = snowBotDTO.Enabled.ToString(),
-                ["SnowBot:TemperatureThreshold"] = snowBotDTO.TemperatureThreshold.ToString()
+                ["SnowBot:Message"] = snowBotConfig.Message,
+                ["SnowBot:Enabled"] = snowBotConfig.Enabled.ToString(),
+                ["SnowBot:TemperatureThreshold"] = snowBotConfig.TemperatureThreshold.ToString()
             };
 
             IConfiguration config =

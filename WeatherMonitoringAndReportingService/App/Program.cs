@@ -28,9 +28,12 @@ public class Program
 
         Console.WriteLine(Constants.Introduction);
         var userInput = InputParser.ParseInput();
-        FormatReader.ChooseReader(userInput);
+        
+        
         try
         {
+            IFormatReader reader = FormatReader.ChooseReader(userInput);
+            readerService.SetReader(reader);
             var readerData = readerService.ParseWeatherData(userInput);
             botSystem.ProcessInput(readerData);
         }

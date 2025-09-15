@@ -22,8 +22,8 @@ namespace WMRS.Tests
                             }
                         """;
 
-        public static RainBotDTO TestRainBot = new RainBotDTO { Message = "Rainy Day!", Enabled = true, HumidityThreshold = 30f};
-        public static SunBotDTO TestSunBot = new SunBotDTO { Message = "Sunny Day!", Enabled = false, TemperatureThreshold = 40f};
-        public static SnowBotDTO TestSnowBot = new SnowBotDTO { Message = "Snowy Day!", Enabled = true, TemperatureThreshold = 10f};
+        public static RainBotConfig TestRainBot = new RainBotConfig { Message = "Rainy Day!", Enabled = true, HumidityThreshold = 30f};
+        public static SunBotConfig TestSunBot = new SunBotConfig { Message = "Sunny Day!", Enabled = false, TemperatureThreshold = 40f};
+        public static SnowBotConfig TestSnowBot = new SnowBotConfig { Message = "Snowy Day!", Enabled = true, TemperatureThreshold = 10f};
     }
 }
