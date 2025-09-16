@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using WeatherMonitoringAndReportingService.Logic.DTOs;
 using WeatherMonitoringAndReportingService.Logic.Services;
 using WeatherMonitoringAndReportingService.Logic.Subjects;
 
@@ -13,7 +12,7 @@ namespace WMRS.Tests.Tests
         }
 
         [Fact]
-        public void LoadBots_ShouldAttachEnabledBots()
+        public void LoadBots_WithValidBots_ShouldAttachEnabledBots()
         {
             int initialBotsCount = 3;
             var rainBotConfig = DummyData.TestRainBot;

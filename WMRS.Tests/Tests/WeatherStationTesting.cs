@@ -8,7 +8,7 @@ namespace WMRS.Tests.Tests
     public class WeatherStationTesting
     {
         [Fact]
-        public void AttachObserver_ShouldAddObserver()
+        public void AttachObserver_WithValidObserver_ShouldAttachObserver()
         {
             var station = new WeatherStation();
             var mockObserver = new Mock<IBotObserver>();
@@ -20,7 +20,7 @@ namespace WMRS.Tests.Tests
         }
 
         [Fact]
-        public void DetatchObserver_ShouldRemoveObserver()
+        public void DetatchObserver_WithValidObserver_ShouldRemoveObserver()
         {
             var station = new WeatherStation();
             var mockObserver = new Mock<IBotObserver>();
@@ -34,7 +34,7 @@ namespace WMRS.Tests.Tests
         }
 
         [Fact]
-        public void ProcessData_ShouldNotifyAllObservers()
+        public void ProcessData_WithValidWeatherData_ShouldNotifyAllObservers()
         {
             //Arrange
             var weatherData = new WeatherData("Ramallah", 30, 35);
